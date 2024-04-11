@@ -1,8 +1,9 @@
-import  Homepage  from "./Pages/Homepage/Homepage"
-import  Detailpage  from "./Pages/Detailpage/Detailpage"
+import  Homepage  from "./Pages/Homepage/Homepage.jsx"
+import  Detailpage  from "./Pages/Detailpage/Detailpage.jsx"
 import { createBrowserRouter } from 'react-router-dom'
+
 // routes 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
     {
       path:"/",
       element: <Homepage/>
@@ -13,4 +14,4 @@ export const router = createBrowserRouter([
     }
 ])
 
-// export router;
+export default router;

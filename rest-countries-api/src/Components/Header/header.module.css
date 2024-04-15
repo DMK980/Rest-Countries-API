@@ -1,0 +1,22 @@
+/* Header styling */
+
+.header{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    box-shadow: 0px -30px 30px 10px black;
+}
+
+/* Headline */
+.heading{
+    font-size: clamp(0.5rem,5vw,3rem);
+}
+
+/* dark Mode container */
+.darkmodeContainer{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: clamp(0.75rem,2.55vw,1rem);
+}

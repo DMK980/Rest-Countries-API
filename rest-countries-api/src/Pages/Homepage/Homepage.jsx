@@ -1,12 +1,15 @@
+import Header from "../../Components/Header/header"
+import Searchfilter from "../../Components/Search_Filter/search_filter"
 import "./Homepage.css"
 
 const Homepage = ()=> {
 
   return (
     <>
-      <p>Homepage</p>
+      <Header/>
+      <Searchfilter/>
     </>
   )
 }
 
-export default Homepage
+export default Homepage;

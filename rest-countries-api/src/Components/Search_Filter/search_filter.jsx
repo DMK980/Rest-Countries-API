@@ -29,8 +29,6 @@ const Searchfilter = ()=>{
     const handlechange = (event)=>{
         setregion(event.target.value)
     }
-    const magnify = <FontAwesomeIcon className={search_filter.searchicon}icon={faMagnifyingGlass}/>
-    console.log(magnify)
 
     return(
         <section className={search_filter.container}>

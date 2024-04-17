@@ -13,14 +13,14 @@ const countriesApi = async ()=>{
     }
     return countries;
 }
-// set data as initial state
-const initialState = {
-    countries: await countriesApi()
-}
-// Slice
+
+// Country Slice
 export const countrySlice = createSlice({
     name: "country",
-    initialState,
+    initialState: {
+        // set data as initial state
+        countries: await countriesApi()
+    },
     reducers:{}
 })
 

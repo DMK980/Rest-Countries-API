@@ -1,4 +1,4 @@
-import countrycard from "./countrycard.module.css";
+
 
 // Mui imports 
 import Card from '@mui/material/Card';
@@ -8,31 +8,38 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 const CountryCard = (props)=>{
+
+    // destructuring props
+    const {imgsrc,countryname,population,region,capital} = props;
     return (
         <>
-            <Card sx={{maxWidth: 270}}>
-                <CardActionArea>
+            <Card sx={{
+                width:270,
+                flexGrow:1
+                }}
+            >
+                <CardActionArea >
                     <CardMedia
                     component="img"
                     height="150"
-                    image={props.imagesrc}
+                    image={imgsrc}
                     alt="green iguana"
                     />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {props.countryname}
+                    <CardContent >
+                        <Typography gutterBottom variant="h6" component="div"sx={{fontWeight:900}}>
+                            {countryname}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <span style={{fontWeight: "bold"}}>Population: </span>
-                            {props.population}
+                            {population}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <span style={{fontWeight: "bold"}}>Region: </span>
-                            [props.region]
+                            {region}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <span style={{fontWeight: "bold"}}>Capital: </span>
-                            [props.capital]
+                            {capital}
                         </Typography>
                     </CardContent>
                 </CardActionArea>

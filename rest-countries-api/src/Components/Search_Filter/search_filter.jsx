@@ -10,17 +10,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 
-
-
-const countriesApi = async ()=>{
-    try {
-        const url = "https://restcountries.com/v3.1/all?fields=name,tld,subregion,region,population,languages,flags,currencies,cca2,ccn3,capital,borders"
-        const response = await fetch(url)
-        const data = await response.json();    
-    } catch (error) {
-        console.log(error)
-    }
-}
 // countriesApi()
 
 const Searchfilter = ()=>{

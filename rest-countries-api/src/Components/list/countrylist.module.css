@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    padding: 0 1rem;
+    justify-content: start;
+}
+@media screen and (min-width:704px) {
+    .container{
+        padding: 0 5rem;
+    }
+    
+}

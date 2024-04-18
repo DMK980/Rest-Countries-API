@@ -1,5 +1,5 @@
 import search_filter from "./search_filter.module.css"
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // fontawesome imports
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -10,22 +10,42 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 
-// countriesApi()
 
-const Searchfilter = ()=>{
-    const [region,setregion] = useState("")
-    const countries = []
+
+const Searchfilter = (props)=>{
+
+    const [region,setregion] = useState("") 
+    const search_bar = useRef()   
+
     const handlechange = (event)=>{
         setregion(event.target.value)
     }
 
+    const onChange = (event) =>{
+        
+    }
+    useEffect(()=>{
+        window.onscroll = ()=>{
+            if (window.scrollY >= 94){
+                if (search_bar.current.classList[1] == undefined){
+                    search_bar.current.classList.add(`${search_filter.sticky}`)
+                }
+            } else if( window.scrollY <= 94){
+                if (search_bar.current.classList[1] != undefined){
+                    search_bar.current.classList.remove(`${search_filter.sticky}`)
+                }
+            }
+        }
+    },[]);
+
     return(
-        <section className={search_filter.container}>
+        <section className={search_filter.container} ref={search_bar}>
             <div className={search_filter.input_container}>
                 <FontAwesomeIcon className={search_filter.searchicon}icon={faMagnifyingGlass}/>
                 <TextField 
                     className={search_filter.textfield}
                     id="outlined-search" 
+                    onChange={onChange}
                     type="search"
                     sx={{
                         "& fieldset":{border: "none"}
@@ -62,5 +82,7 @@ const Searchfilter = ()=>{
         </section>
     )
 }
+
+
 
 export default Searchfilter;

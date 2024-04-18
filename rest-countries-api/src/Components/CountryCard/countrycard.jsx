@@ -7,13 +7,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-const CountryCard = (props)=>{
+const CountryCard = ({imgsrc,countryname,population,region,capital})=>{
 
-    // destructuring props
-    const {imgsrc,countryname,population,region,capital} = props;
     return (
         <>
             <Card sx={{
+                maxWidth:300,
                 width:270,
                 flexGrow:1
                 }}

@@ -6,15 +6,15 @@
     flex-direction: column;
     padding: 2rem 1rem 2rem 1rem;
     gap: 1rem;
-    
+    z-index: -1000;
+
 }
 @media screen and (min-width:704px) {
     .container{
         flex-direction: row;
         justify-content: space-between;
         padding: 2rem 5rem 2rem 5rem;
-    }
-    
+    }   
 }
 
 /* input styling */
@@ -46,6 +46,15 @@
     box-shadow: 0px 0px 7.5px -5px black;
     background-color: var(--Light-Mode-Background); 
 }
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--Light-Mode-Background);
+}
+
 
 
 

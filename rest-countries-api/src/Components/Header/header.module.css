@@ -6,6 +6,8 @@
     justify-content: space-between;
     padding: 1rem 1rem 1rem 1rem;
     box-shadow: 0px -30px 30px 10px black;
+    z-index: 3000;
+    background-color: var(--Light-Mode-Background);
 }
 @media screen and (min-width:704px) {
     .header{

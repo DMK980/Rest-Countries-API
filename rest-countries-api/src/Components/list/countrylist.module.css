@@ -4,11 +4,16 @@
     flex-wrap: wrap;
     gap: 2.5rem;
     padding: 0 1rem;
-    justify-content: start;
+    justify-content: center;
+
 }
 @media screen and (min-width:704px) {
     .container{
         padding: 0 5rem;
     }
     
+}
+
+.sticky{
+    /* padding-top: 120px; */
 }

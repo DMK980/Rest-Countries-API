@@ -1,5 +1,4 @@
 import search_filter from "./search_filter.module.css"
-import { useState, useRef, useEffect } from "react";
 
 // fontawesome imports
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -12,40 +11,24 @@ import TextField from '@mui/material/TextField';
 
 
 
-const Searchfilter = (props)=>{
+const Searchfilter = ({setSearch,setFilter,region})=>{  
 
-    const [region,setregion] = useState("") 
-    const search_bar = useRef()   
-
-    const handlechange = (event)=>{
-        setregion(event.target.value)
+    const handlechange_dropdown = (event)=>{
+        setFilter(event.target.value)
     }
 
-    const onChange = (event) =>{
-        
+    const onChange_search = (event) =>{
+        setSearch(event.target.value)
     }
-    useEffect(()=>{
-        window.onscroll = ()=>{
-            if (window.scrollY >= 94){
-                if (search_bar.current.classList[1] == undefined){
-                    search_bar.current.classList.add(`${search_filter.sticky}`)
-                }
-            } else if( window.scrollY <= 94){
-                if (search_bar.current.classList[1] != undefined){
-                    search_bar.current.classList.remove(`${search_filter.sticky}`)
-                }
-            }
-        }
-    },[]);
 
     return(
-        <section className={search_filter.container} ref={search_bar}>
+        <section className={search_filter.container}>
             <div className={search_filter.input_container}>
                 <FontAwesomeIcon className={search_filter.searchicon}icon={faMagnifyingGlass}/>
                 <TextField 
                     className={search_filter.textfield}
                     id="outlined-search" 
-                    onChange={onChange}
+                    onChange={onChange_search}
                     type="search"
                     sx={{
                         "& fieldset":{border: "none"}
@@ -63,7 +46,7 @@ const Searchfilter = (props)=>{
             <Select 
                 className={search_filter.select} 
                 value={region} 
-                onChange={handlechange} 
+                onChange={handlechange_dropdown} 
                 displayEmpty 
                 inputProps={{ 'aria-label': 'Without label' }}
                 sx={{

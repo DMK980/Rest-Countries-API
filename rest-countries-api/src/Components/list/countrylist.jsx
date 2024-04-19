@@ -2,31 +2,32 @@ import countrylist from "./countrylist.module.css"
 import CountryCard from "../CountryCard/countrycard";
 import { useSelector } from "react-redux";
 import { Fragment } from "react";
-import { useRef, useEffect } from "react";
 
-const CountryList = ()=>{
 
-    const countrylist_ref = useRef()
-
-    useEffect(() => {
-        window.onscroll = ()=>{
-            if (window.scrollY >= 94){
-                if (countrylist_ref.current.classList[1] == undefined){
-                    countrylist_ref.current.classList.add(`${countrylist.sticky}`)
-                }
-            } else if( window.scrollY <= 94){
-                if (countrylist_ref.current.classList[1] != undefined){
-                    countrylist_ref.current.classList.remove(`${countrylist.sticky}`)
-                }
-            }
-        }
-    }, []);
-
+const CountryList = ({search,filter})=>{
 
     const data = useSelector((state)=>state.country.countries)
 
-
-    const list = data.map((element,index)=>{
+    const list = data.filter((element)=>{
+        if (filter === ""){
+            return element
+        }else {
+            if (element.region === filter){
+                return  element
+            }
+        }
+    }).filter((element)=>{
+        if (search === ""){
+            return element
+        }else {
+            const namelower = element.name.common.toLowerCase()
+            const searchlower = search.toLowerCase()
+            
+            if (namelower.includes(searchlower)){
+                return element
+            }
+        }
+    }).map((element,index)=>{
         return  (
         <Fragment key={index}>
             <CountryCard 
@@ -41,7 +42,7 @@ const CountryList = ()=>{
     })
 
     return (
-        <section className={countrylist.container} ref={countrylist_ref}>
+        <section className={countrylist.container} >
             {list}
         </section>
     )

@@ -1,10 +1,11 @@
+import Header from "../../Components/Header/header";
 import "./Detailpage.css"
 
 const Detailpage = ()=>{
 
     return (
         <>
-        <p>Details Page</p>
+        <Header/>
         </>
     )
 }

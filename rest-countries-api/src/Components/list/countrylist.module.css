@@ -13,3 +13,24 @@
     }
 }
 
+/* Error styles */
+.err_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    padding: 2rem;
+    /* border-radius: 10px; */
+    width: 100%;
+    font-size:clamp(0.5rem,5vw,3rem);
+    color: rgb(131, 24, 24);
+}
+
+.err_message{
+    font-weight: 900;
+    color: var(--Light-Mode-Input);
+    text-align: center;
+    opacity: 0.6;
+
+}

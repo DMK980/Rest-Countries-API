@@ -1,0 +1,14 @@
+.backBtnContainer{
+    padding: 2rem 5rem 1rem 5rem;
+    color: var(--Light-Mode-Text);
+}
+@media screen and (max-width:704px) {
+    .backBtnContainer{
+        padding: 2rem 1rem 1rem 1rem;
+    } 
+}
+
+.detailssection{
+   display: flex;
+   justify-content: center; 
+}

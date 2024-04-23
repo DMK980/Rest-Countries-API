@@ -57,7 +57,7 @@ const Searchfilter = ({setSearch,setFilter,region})=>{
                     <em>Filter by Region</em>
                 </MenuItem>
                 <MenuItem value={"Africa"}>Africa</MenuItem>
-                <MenuItem value={"America"}>America</MenuItem>
+                <MenuItem value={"Americas"}>Americas</MenuItem>
                 <MenuItem value={"Asia"}>Asia</MenuItem>
                 <MenuItem value={"Europe"}>Europe</MenuItem>
                 <MenuItem value={"Oceania"}>Oceania</MenuItem>

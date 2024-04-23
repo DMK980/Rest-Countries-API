@@ -8,16 +8,22 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { countryselect } from '../../State/features/selectedcountryslice';
 
 
-const CountryCard = ({keys,imgsrc,countryname,population,region,capital})=>{ 
+const CountryCard = ({key:keys,country,imgsrc,countryname,population,region,capital})=>{ 
 
     // update state for selected country
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const handleclick = ()=>{
-        dispatch(countryselect(keys))
+        dispatch(countryselect(country))
+        navigate("/Details")
     }
+    // adding commas to population
+    const pop = population
+    const clean_population = pop.toLocaleString("en-US");
     
     return (
         <Card sx={{
@@ -26,6 +32,7 @@ const CountryCard = ({keys,imgsrc,countryname,population,region,capital})=>{
             flexGrow:1
             }}
             onClick={handleclick}
+            keys ={keys}
         >
             <CardActionArea >
                 <CardMedia
@@ -40,7 +47,7 @@ const CountryCard = ({keys,imgsrc,countryname,population,region,capital})=>{
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         <span style={{fontWeight: "bold"}}>Population: </span>
-                        {population}
+                        {clean_population}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         <span style={{fontWeight: "bold"}}>Region: </span>

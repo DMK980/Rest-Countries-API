@@ -3,24 +3,54 @@ import details from "./details.module.css"
 import {useSelector} from "react-redux";
 
 const Details = ()=>{
-
-    const data = useSelector((state)=> state.country.countries[0])
+    // getting data from store
+    const data = useSelector((state)=>state.selectedcountry.value)
     console.log(data)
-    // data required
+
+    // data required / cleaning data
+
+    // getting native name from object
+    let nativeName;
+    for ( let key in data.name.nativeName){
+        nativeName = data.name.nativeName[key].common
+    } 
+
+    // getting the border countries and maping 
+    const borderCountries = data.borders.map((country,index)=>{
+        return (
+        <Btn key={index} text={country} padding="0.25rem 2rem"/>
+        )
+    })
+    
+    // getting currency from object
+    let currency;
+    for ( let key in data.currencies){
+        currency = data.currencies[key].name
+    } 
+
+    // getting languages from object
+    let lang = [];
+    for ( let key in data.languages){
+        if (Object.keys(data.languages).length === 1){
+            lang.push(data.languages[key])
+        }else {
+            lang.push(data.languages[key])
+            lang.push(",")
+        }
+    } 
+    lang[lang.length-1] === "," ? lang.pop(): null;
+    let language = lang.map((element)=>element)
+
+    // standardizing the population data by adding dots
+    let popu = data.population
+    const population = popu.toLocaleString("en-US");
+
+    // standardized data from object not needing cleaning
     const name = data.name.common;
-    const nativeName = data.name.nativeName.ron.official;
-    const population = data.population;
     const region = data.region;
     const subRegion = data.subregion;
     const capital = data.capital;
     const topLevelDomain = data.tld[0];
-    const currency = data.currencies.MDL.symbol;
-    const language = data.languages.ron;
-    const borderCountries = data.borders.map((country)=>{
-        return (
-        <Btn text={country} padding="0.25rem 2rem"/>
-        )
-    })
     return (
         <section className={details.container}>
             <img className={details.image}src={data.flags.svg}/>

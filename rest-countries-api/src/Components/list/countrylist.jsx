@@ -39,7 +39,8 @@ const CountryList = ({search,filter})=>{
                     list.map((element,index)=>{
                         return  (
                             <CountryCard
-                                keys={index}
+                                key={index}
+                                country={element}
                                 imgsrc={element.flags.svg}
                                 countryname={element.name.common}
                                 population={element.population}

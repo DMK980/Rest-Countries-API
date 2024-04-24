@@ -10,6 +10,7 @@ import { CardActionArea } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { countryselect } from '../../State/features/selectedcountryslice';
+import { scrollsetting } from '../../State/features/scrollposition';
 
 
 const CountryCard = ({key:keys,country,imgsrc,countryname,population,region,capital})=>{ 
@@ -20,11 +21,11 @@ const CountryCard = ({key:keys,country,imgsrc,countryname,population,region,capi
     const handleclick = ()=>{
         dispatch(countryselect(country))
         navigate("/Details")
+        dispatch(scrollsetting(window.scrollY))
     }
     // adding commas to population
     const pop = population
     const clean_population = pop.toLocaleString("en-US");
-    
     return (
         <Card sx={{
             maxWidth:300,

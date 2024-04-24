@@ -2,7 +2,10 @@
 .sticky_country{
     margin-top: 120px;
 }
-.sticky_header {
+.sticky_country_resp{
+    margin-top: 182px;
+}
+.sticky_search {
     position: fixed;
     width: 100%;
     top: 0;

@@ -7,9 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faTriangleExclamation} from "@fortawesome/free-solid-svg-icons"
 
 
-const CountryList = ({search,filter})=>{
+const CountryList = ()=>{
 
     const data = useSelector((state)=>state.country.countries)
+    const searchAndFilter = useSelector((state)=>state.search_filter)
+    const search = searchAndFilter.search
+    const filter = searchAndFilter.filter
 
     // filtering the result based on region and user input
     const list = data.filter((element)=>{

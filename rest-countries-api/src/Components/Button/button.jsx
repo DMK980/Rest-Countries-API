@@ -16,7 +16,6 @@ const Btn = ({key,fontawesome,text,padding})=>{
             navigate("/")
         }
     }
-
     return (
         <Button 
             className={button.btn}

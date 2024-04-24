@@ -8,17 +8,22 @@ import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
+import { useSelector, useDispatch } from "react-redux";
+import { filterSetting, searchSetting } from "../../State/features/searchslice";
 
 
 
-const Searchfilter = ({setSearch,setFilter,region})=>{  
+const Searchfilter = ()=>{  
+
+    const dispatch = useDispatch()
+    const values = useSelector((state)=>state.search_filter)
 
     const handlechange_dropdown = (event)=>{
-        setFilter(event.target.value)
+        dispatch(filterSetting(event.target.value))
     }
 
     const onChange_search = (event) =>{
-        setSearch(event.target.value)
+        dispatch(searchSetting(event.target.value))
     }
 
     return(
@@ -29,6 +34,7 @@ const Searchfilter = ({setSearch,setFilter,region})=>{
                     className={search_filter.textfield}
                     id="outlined-search" 
                     onChange={onChange_search}
+                    value={values.search}
                     type="search"
                     sx={{
                         "& fieldset":{border: "none"}
@@ -45,7 +51,7 @@ const Searchfilter = ({setSearch,setFilter,region})=>{
 
             <Select 
                 className={search_filter.select} 
-                value={region} 
+                value={values.filter} 
                 onChange={handlechange_dropdown} 
                 displayEmpty 
                 inputProps={{ 'aria-label': 'Without label' }}

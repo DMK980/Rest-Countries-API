@@ -7,10 +7,11 @@ export const darkmodeSlice = createSlice({
     },
     reducers:{
         switching: (state)=>{
-            if(state.darkmode.value){
-                state.darkmode.value = false;
+
+            if(state.value){
+                state.value = false;
             } else{
-                state.darkmode.value = true;
+                state.value = true;
             }
         }
     }

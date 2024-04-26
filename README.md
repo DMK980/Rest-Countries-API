@@ -31,11 +31,11 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![ScreenShot](./Screenshotcountries.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Github Repository](https://github.com/DMK980/Rest-Countries-API)
 - Live Site URL: [Live site](https://rest-countries-api-flax-six.vercel.app/)
 
 ## My process
@@ -47,12 +47,25 @@ Users should be able to:
 - Javascript
 - CSS Modules
 - [React](https://reactjs.org/) - JS library
+- [MUI](https://mui.com/) - Component Library
+- [Redux-React](https://react-redux.js.org/) - State management
 
 ### What I learned
 
+I learned alot about MUI,Redux,React and working with the API. MUI made it alot easier to make the components
+and style them while redux helped alot with state management. The API on the other hand was a pain to work with
+since the data is not formatted correctly i should have just used the data provided as that one is much easier 
+to work with. 
+
 ### Continued development
 
+I want to get better at MUI to be able to make applications faster instead of custom CSS
+
 ### Useful resources
+
+- [MUI](https://mui.com/) - Component Library
+- [Redux-React](https://react-redux.js.org/) - State management
+
 
 ## Author
 

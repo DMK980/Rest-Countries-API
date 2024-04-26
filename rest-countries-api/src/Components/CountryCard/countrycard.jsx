@@ -11,7 +11,8 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { countryselect } from '../../State/features/selectedcountryslice';
 import { scrollsetting } from '../../State/features/scrollposition';
-
+import countrycard from "./countrycard.module.css"
+ 
 
 const CountryCard = ({key:keys,country,imgsrc,countryname,population,region,capital})=>{ 
 
@@ -29,32 +30,48 @@ const CountryCard = ({key:keys,country,imgsrc,countryname,population,region,capi
     return (
         <Card sx={{
             maxWidth:300,
-            width:270,
-            flexGrow:1
+            width:290,
+            flexGrow:1,
+            borderRadius:2,
             }}
+            className={countrycard.card}
             onClick={handleclick}
             keys ={keys}
         >
-            <CardActionArea >
+            <CardActionArea 
+                className={countrycard.card}
+                sx={{
+                    height:"100%",
+                    display:"grid",
+                    gridTemplateRows:"auto 1fr"
+                }}
+            >
                 <CardMedia
                 component="img"
-                height="150"
+                height="fit-content"
                 image={imgsrc}
                 alt="green iguana"
+                sx={{
+                    objectFit: "fill"
+                }}
                 />
-                <CardContent >
+                <CardContent 
+                    sx={{
+                        
+                    }}
+                >
                     <Typography gutterBottom variant="h6" component="div"sx={{fontWeight:900}}>
                         {countryname} 
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2">
                         <span style={{fontWeight: "bold"}}>Population: </span>
                         {clean_population}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2">
                         <span style={{fontWeight: "bold"}}>Region: </span>
                         {region}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2">
                         <span style={{fontWeight: "bold"}}>Capital: </span>
                         {capital}
                     </Typography>

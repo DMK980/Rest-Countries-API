@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 const Details = ()=>{
     // getting data from store
     const data = useSelector((state)=>state.selectedcountry.value)
-    console.log(data)
 
     // data required / cleaning data
 

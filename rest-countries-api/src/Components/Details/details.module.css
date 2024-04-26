@@ -5,6 +5,7 @@
     width: fit-content;
     display: flex;
     flex-wrap: wrap; 
+    color: var(--Light-Mode-Text);
 }
 @media screen and (min-width:704px) {
     .container{
@@ -19,7 +20,7 @@
     max-width: 35rem;
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit:cover;
     align-self: center;
     box-shadow: 0px 0px 7.5px -5px black;
 }

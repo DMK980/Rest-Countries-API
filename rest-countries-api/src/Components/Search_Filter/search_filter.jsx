@@ -13,10 +13,15 @@ import { filterSetting, searchSetting } from "../../State/features/searchslice";
 
 
 
+
 const Searchfilter = ()=>{  
 
     const dispatch = useDispatch()
     const values = useSelector((state)=>state.search_filter)
+    const darkOrNah = useSelector((state)=>state.darkmode.value)
+
+    const dark_text = darkOrNah ? "hsl(0, 0%, 100%)":"hsl(200, 15%, 8%)";
+    const dark_background = darkOrNah ? "hsl(209, 23%, 22%)":"hsl(0, 0%, 100%)";
 
     const handlechange_dropdown = (event)=>{
         dispatch(filterSetting(event.target.value))
@@ -37,7 +42,10 @@ const Searchfilter = ()=>{
                     value={values.search}
                     type="search"
                     sx={{
-                        "& fieldset":{border: "none"}
+                        "& fieldset":{border: "none"},
+                        input:{
+                            color:dark_text
+                        }
                     }} 
                     InputLabelProps={{
                         shrink:false
@@ -54,9 +62,26 @@ const Searchfilter = ()=>{
                 value={values.filter} 
                 onChange={handlechange_dropdown} 
                 displayEmpty 
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ 
+                    'aria-label': 'Without label',
+                    MenuProps:{
+                        MenuListProps:{
+                            sx:{
+                                color: dark_text,
+                                backgroundColor: dark_background,
+                                borderRadius: 0
+                            }
+                        }
+                    }
+                 }}
                 sx={{
-                    "& fieldset":{border: "none"}
+                    "& fieldset":{
+                        border: "none"
+                    },
+                    icon:{
+                        fill:dark_text
+                    }
+                    
                 }}
             >
                 <MenuItem value="">

@@ -1,0 +1,4 @@
+.card{
+    background-color:var(--Light-Mode-Elements) !important;
+    color: var(--Light-Mode-Text) !important;
+}

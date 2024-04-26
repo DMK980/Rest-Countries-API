@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 // font awesome imports 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faTriangleExclamation} from "@fortawesome/free-solid-svg-icons"
+import { Fragment } from "react";
 
 
 const CountryList = ()=>{
@@ -41,15 +42,16 @@ const CountryList = ()=>{
                 list.length != 0 ? 
                     list.map((element,index)=>{
                         return  (
-                            <CountryCard
-                                key={index}
-                                country={element}
-                                imgsrc={element.flags.svg}
-                                countryname={element.name.common}
-                                population={element.population}
-                                region={element.region}
-                                capital={element.capital[0]}
-                            />
+                            <Fragment key={index}>
+                                <CountryCard
+                                    country={element}
+                                    imgsrc={element.flags.svg}
+                                    countryname={element.name.common}
+                                    population={element.population}
+                                    region={element.region}
+                                    capital={element.capital[0]}
+                                />
+                            </Fragment>
                         )
                     }):
                     <div className={countrylist.err_container}>

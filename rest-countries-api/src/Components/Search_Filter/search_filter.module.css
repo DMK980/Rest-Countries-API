@@ -19,7 +19,7 @@
 
 /* input styling */
 .input_container{
-    background-color: var(--Light-Mode-Background);
+    background-color: var(--Light-Mode-Elements);
     color: var(--Light-Mode-Text);
     min-width: 200px;
     width: 98%;
@@ -27,11 +27,11 @@
     display: flex;
     align-items: center;
     box-shadow: 0px 0px 7.5px -5px black;
-    border: 0.1px solid lightgray !important;
+    border: 0.1px solid var(--Light-Mode-Element) !important;
     border-radius: 5px;
 }
 .searchicon{
-    background-color: var(--Light-Mode-Background);
+    background-color: var(--Light-Mode-Elements);
     padding: 0 0 0 1rem;
 }
 .textfield{
@@ -39,15 +39,22 @@
     width: 100% !important;
     max-width: 400px !important;
 }
+.input_container:hover{
+    opacity: 0.7;
+}
 
 
 
 /* filter styling */
 .select{
+    color: var(--Light-Mode-Text) !important;
     width: 10.5rem;
     box-shadow: 0px 0px 7.5px -5px black;
-    background-color: var(--Light-Mode-Background); 
-    border: 0.1px solid lightgray !important;
+    background-color: var(--Light-Mode-Elements) !important; 
+    border: 0.1px solid var(--Light-Mode-Elements) !important;
+}
+.select:hover{
+    opacity: 0.7;
 }
 
 

@@ -73,7 +73,7 @@ const CountryCard = ({key:keys,country,imgsrc,countryname,population,region,capi
                     </Typography>
                     <Typography variant="body2">
                         <span style={{fontWeight: "bold"}}>Capital: </span>
-                        {capital}
+                        {capital ? capital: "No capital"}
                     </Typography>
                 </CardContent>
             </CardActionArea>

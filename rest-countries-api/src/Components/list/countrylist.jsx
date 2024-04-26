@@ -30,7 +30,7 @@ const CountryList = ()=>{
         }else {
             const namelower = element.name.common.toLowerCase()
             const searchlower = search.toLowerCase()
-            if (namelower.includes(searchlower)){
+            if (namelower.startsWith(searchlower)){
                 return element
             }
         }

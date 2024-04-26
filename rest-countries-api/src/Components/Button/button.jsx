@@ -3,15 +3,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button } from "@mui/material"
 import button from "./button.module.css"
 import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { countrydata } from "../../data";
+import { countryselect } from "../../State/features/selectedcountryslice"
 
 const Btn = ({fontawesome,text,padding})=>{
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const data = useSelector((state)=>state.country.countries)
 
     const handleClick = ()=>{
         if (text === "Back"){
             navigate("/")
         }
+        countrydata.map((element)=>{
+            if (element.alpha3Code === text){
+                data.map((elem)=>{
+                    if (elem.name.common === element.name){
+                        dispatch(countryselect(elem))
+                    }
+                })
+            }
+        })
     }
     return (
         <Button 

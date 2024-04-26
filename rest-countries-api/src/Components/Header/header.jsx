@@ -1,6 +1,6 @@
 import header from "./header.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {faMoon as darkmoon} from "@fortawesome/free-solid-svg-icons"
+import {faSun as lightmode} from "@fortawesome/free-solid-svg-icons"
 import {faMoon as lightmoon} from "@fortawesome/free-regular-svg-icons"
 import { useDispatch, useSelector } from "react-redux"
 import { switching } from "../../State/features/darkmodeslice"
@@ -9,8 +9,6 @@ const Header = ()=>{
     const rootelement = document.querySelector(":root");
     let theme = useSelector((state)=>state.darkmode.value)
     const dispatch = useDispatch()
-    // console.log(globalVariables.getPropertyValue("--Light-Mode-Background"))
-    // console.log(localStorage.getItem("panelTheme"))
     
     const handleclick = ()=>{ 
         dispatch(switching())
@@ -37,13 +35,12 @@ const Header = ()=>{
         }
     }
     
-    const moon = theme == true ? <FontAwesomeIcon icon={darkmoon} className={header.moon}/> : <FontAwesomeIcon icon={lightmoon} className={header.moon}/>;
+    const moon = theme == true ? <><FontAwesomeIcon icon={lightmode} className={header.moon}/><p className={`${header.darkmodetext} ${header.darktheme}`}>Light Mode</p></> : <><FontAwesomeIcon icon={lightmoon} className={header.moon}/> <p className={`${header.darkmodetext} ${header.darktheme}`}>Dark Mode</p></>;
     return (
         <header className={header.header} >
             <h2 className={header.heading}>Where in the World ?</h2>
             <div className={header.darkmodeContainer} onClick={handleclick}>
                 {moon}
-                <p className={`${header.darkmodetext} ${header.darktheme}`}>Dark Mode</p>
             </div>
         </header>
     )

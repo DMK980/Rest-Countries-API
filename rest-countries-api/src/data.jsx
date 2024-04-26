@@ -1,5 +1,5 @@
 
-  {
+  export const countrydata = [{
     "name": "Afghanistan",
     "topLevelDomain": [".af"],
     "alpha2Code": "AF",
@@ -16821,4 +16821,5 @@
     "cioc": "ZIM",
     "independent": true
   }
+]
 

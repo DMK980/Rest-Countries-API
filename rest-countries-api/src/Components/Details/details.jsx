@@ -2,6 +2,8 @@ import Btn from "../Button/button";
 import details from "./details.module.css"
 import {useSelector} from "react-redux";
 
+    
+
 const Details = ()=>{
     // getting data from store
     const data = useSelector((state)=>state.selectedcountry.value)
@@ -47,16 +49,16 @@ const Details = ()=>{
     // standardized data from object not needing cleaning
     const name = data.name.common;
     const region = data.region;
-    const subRegion = data.subregion;
-    const capital = data.capital;
-    const topLevelDomain = data.tld[0];
+    const subRegion = data.subregion ? data.subRegion:"No Subregion";
+    const capital = data.capital[0] ? data.capital[0]:"No capital";
+    const topLevelDomain = data.tld[0] ? data.tld[0]:"No topLevelDomain";
     return (
         <section className={details.container}>
             <img className={details.image}src={data.flags.svg}/>
             <div className={details.detailsSection}>
                 <h2 className={`${details.heading} ${details.grid_span_2}`}>{name}</h2>
                 <div className={details.text_left_container}>
-                    <p className={`${details.text_left} ${details.text_info}`}><span className={details.subheading}>Native Name: </span>{nativeName}</p>
+                    <p className={`${details.text_left} ${details.text_info}`}><span className={details.subheading}>Native Name: </span>{nativeName ? nativeName : "No nativename"}</p>
                     <p className={`${details.text_left} ${details.text_info}`}><span className={details.subheading}>Population: </span>{population}</p>
                     <p className={`${details.text_left} ${details.text_info}`}><span className={details.subheading}>Region: </span>{region}</p>
                     <p className={`${details.text_left} ${details.text_info}`}><span className={details.subheading}>Sub Region: </span>{subRegion}</p>
@@ -64,13 +66,13 @@ const Details = ()=>{
                 </div>
                 <div className={details.text_right_container}>
                     <p className={`${details.text_right} ${details.text_info}`}><span className={details.subheading}>Top Level Domain: </span>{topLevelDomain}</p>
-                    <p className={`${details.text_right} ${details.text_info}`}><span className={details.subheading}>Currencies: </span>{currency}</p>
-                    <p className={`${details.text_right} ${details.text_info}`}><span className={details.subheading}>Languages: </span>{language}</p>
+                    <p className={`${details.text_right} ${details.text_info}`}><span className={details.subheading}>Currencies: </span>{currency ? currency : "No currencies"}</p>
+                    <p className={`${details.text_right} ${details.text_info}`}><span className={details.subheading}>Languages: </span>{language.length ? language : "No languages"}</p>
                 </div>
                 <div className={`${details.brdctr} ${details.grid_span_2}`}>
                     <p className={`${details.subheading} ${details.bordercountries}`}>Border Countries: </p>
                     <div className={details.borderbtns}>
-                        {borderCountries}
+                        {borderCountries.length ? borderCountries : "No Border Countries"}
                     </div>
                 </div>
             </div>
